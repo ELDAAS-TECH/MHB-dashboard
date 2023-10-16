@@ -8,7 +8,7 @@ async function processJsonData() {
     const response = await fetch(awsUrl, {
       headers: {
         Authorization: `Bearer ${bearerToken}`,
-        mode:'no-cors'
+        Access-Control-Allow-Headers: 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'
       },
     });
 
