@@ -20,7 +20,7 @@ import Header from "components/Header";
 import DataGridCustomToolbar from "components/DataGridCustomToolbar";
 import { useLocation,useNavigate } from 'react-router-dom';
 
-import {Puck,Beacon, HomeHub,AWSUserList } from "data";
+import {Puck,Beacon, HomeHub } from "data";
 
 import {
   DataGridPremium,
@@ -29,7 +29,7 @@ import {
   useKeepGroupedColumnsHidden,
 } from '@mui/x-data-grid-premium';
 import { useDemoData } from '@mui/x-data-grid-generator';
-// import { processJsonData } from "./getUsers";
+import { processJsonData } from "./getUsers";
 //import PopUp from "components/PopUp";
 const useStyles = makeStyles((theme) => ({
   customDialog: {
@@ -57,21 +57,21 @@ const Users = () => {
    const [selectedPuckId, setSelectedPuckId] = useState(null);
    const navigate = useNavigate();
 
-  //  const [AWSUserList, setAWSUserList] = useState([]);
+   const [AWSUserList, setAWSUserList] = useState([]);
 
-  //  useEffect(() => {
-  //   async function fetchData() {
-  //     try {
-  //       const userList = await processJsonData();
-  //       setAWSUserList(userList);
-  //     } catch (error) {
-  //       console.error("Error fetching data:", error);
-  //       // Handle the error if needed
-  //     }
-  //   }
+   useEffect(() => {
+    async function fetchData() {
+      try {
+        const userList = await processJsonData();
+        setAWSUserList(userList);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        // Handle the error if needed
+      }
+    }
 
-  //   fetchData();
-  // }, []);
+    fetchData();
+  }, []);
 
    
    const handleRowClick = (params,hub_id) => { 
