@@ -50,7 +50,7 @@ const Login = ({ handleLogin }) => {
     event.preventDefault();
 
     // Check if the entered username and password match the desired values
-    if (email === 'admin@mhb.com' && password === '123456') {
+    if (email === 'admin@myhomebeacon.com' && password === '123456') {
       // Login successful
       handleLogin();
       toast.success('Login successful');
